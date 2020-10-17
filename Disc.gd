@@ -3,11 +3,12 @@ extends RigidBody2D
 
 export var min_speed = 250  # Minimum speed range.
 export var max_speed = 350  # Maximum speed range.
-var screen_size
+export var screen_size = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
+	pass
+	#screen_size = get_viewport_rect().size
 
 
 func _process(delta):

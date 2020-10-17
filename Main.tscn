@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WallDisc.tscn" type="PackedScene" id=6]
 [ext_resource path="res://WallDiscPath.gd" type="Script" id=7]
+[ext_resource path="res://Camera2D.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -55,6 +56,12 @@ rotation = 3.04795e-08
 script = ExtResource( 7 )
 
 [node name="WallDisc" parent="." instance=ExtResource( 6 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( -160, -20 )
+anchor_mode = 0
+current = true
+script = ExtResource( 8 )
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
