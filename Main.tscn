@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/background.png" type="Texture" id=2]
 [ext_resource path="res://Disc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WallDisc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://WallDiscPath.gd" type="Script" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2.44067, -1.39579, 0, 0, 0, 0, 319.225, -1.39579, 0, 0, 0, 0, 320.639, 318.216, 0, 0, 0, 0, 2.44067, 316.802, 0, 0, 0, 0, 2.44067, -1.39579 )
+}
 
 [node name="Main" type="Node"]
 script = ExtResource( 4 )
 Disc = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 73, 21.5 )
+position = Vector2( 160, 200 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -36,6 +43,18 @@ position = Vector2( 160, 160 )
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Discs" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 2.44067, -1.39579 )
+rotation = 3.04795e-08
+
+[node name="WallDiscPath" type="Node2D" parent="Path2D/PathFollow2D"]
+script = ExtResource( 7 )
+
+[node name="WallDisc" parent="." instance=ExtResource( 6 )]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
