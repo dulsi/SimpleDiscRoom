@@ -38,5 +38,3 @@ func _on_MobTimer_timeout():
 	$Discs.add_child(disc)
 	disc.position = $DiscPosition.position
 	disc.screen_size = $Discs.get_parent().get_node("Background").get_rect().size
-	disc.linear_velocity = Vector2(rand_range(disc.min_speed, disc.max_speed), 0)
-	disc.linear_velocity = disc.linear_velocity.rotated(rand_range(0, 2 * PI))
