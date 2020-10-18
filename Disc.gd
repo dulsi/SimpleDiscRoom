@@ -19,6 +19,8 @@ func _process(delta):
 			$AnimatedSprite.animation = "default"
 			linear_velocity = Vector2(rand_range(min_speed, max_speed), 0)
 			linear_velocity = linear_velocity.rotated(rand_range(0, 2 * PI))
+			$SpawnSound.random()
+			$SpawnSound.play()
 	else:
 		var bounced = false
 		if position.x < 0 && linear_velocity.x < 0:
