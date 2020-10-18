@@ -12,6 +12,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	$Camera2D.shake = 6
 	for i in range(1, 7, 1):
 		var bone = preload("res://Bone.tscn").instance()
 		$Discs.add_child(bone)
