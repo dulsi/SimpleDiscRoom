@@ -45,6 +45,8 @@ func _process(delta):
 func _on_Player_body_entered(body):
 	if body.appearing <= 0:
 		hide()  # Player disappears after being hit.
+		$DeathSound.random()
+		$DeathSound.play()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
 

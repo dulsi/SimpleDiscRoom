@@ -6,5 +6,9 @@ using Godot.
 
 It is not complete yet.
 
-LICENSE file covers everything except the Liberation font.
+LICENSE file covers godot code.
 
+Liberation font is under SIL Open Font License (OFL).
+
+Death sounds are by HaelDB and licensed under CC0.
+https://opengameart.org/content/male-gruntyelling-sounds

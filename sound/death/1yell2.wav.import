@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1yell2.wav-684c09826ef8e325b51367b6c7d72a9c.sample"
+
+[deps]
+
+source_file="res://sound/death/1yell2.wav"
+dest_files=[ "res://.import/1yell2.wav-684c09826ef8e325b51367b6c7d72a9c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
