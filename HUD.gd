@@ -19,7 +19,7 @@ func show_game_over():
 	$StartButton.show()
 
 func update_score(score):
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Time: " + ("%0.2f" % score)
 
 
 func _on_MessageTimer_timeout():

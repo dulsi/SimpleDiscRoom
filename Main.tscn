@@ -25,6 +25,7 @@ position = Vector2( 160, 200 )
 wait_time = 0.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.01
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0

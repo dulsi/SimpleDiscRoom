@@ -13,7 +13,7 @@ func game_over():
 	$HUD.show_game_over()
 
 func new_game():
-	score = 0
+	score = 0.00
 	var discAry = $Discs.get_children()
 	for item in discAry:
 		$Discs.remove_child(item)
@@ -29,7 +29,7 @@ func _on_StartTimer_timeout():
 
 
 func _on_ScoreTimer_timeout():
-	score += 1
+	score += 0.01
 	$HUD.update_score(score)
 
 
