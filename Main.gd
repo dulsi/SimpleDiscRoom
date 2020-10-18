@@ -2,6 +2,7 @@ extends Node
 
 export (PackedScene) var Disc
 var score
+var room_filler = 3
 
 func _ready():
 	randomize()
@@ -14,6 +15,8 @@ func game_over():
 
 func new_game():
 	score = 0.00
+	room_filler = 3
+	$MobTimer.wait_time = 0.1
 	var discAry = $Discs.get_children()
 	for item in discAry:
 		$Discs.remove_child(item)
@@ -38,3 +41,9 @@ func _on_MobTimer_timeout():
 	$Discs.add_child(disc)
 	disc.position = $DiscPosition.position
 	disc.screen_size = $Discs.get_parent().get_node("Background").get_rect().size
+	if room_filler > 0:
+		room_filler -= 1
+		if room_filler == 0:
+			$MobTimer.stop()
+			$MobTimer.set_wait_time(2)
+			$MobTimer.start()
