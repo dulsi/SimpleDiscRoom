@@ -12,6 +12,13 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
+	for i in range(1, 7, 1):
+		var bone = preload("res://Bone.tscn").instance()
+		$Discs.add_child(bone)
+		bone.position = $Player.position
+		bone.get_node("Sprite").rotation += rand_range(0, 3.14 * 2)
+		bone.linear_velocity = Vector2(rand_range(100, 150), 0)
+		bone.linear_velocity = bone.linear_velocity.rotated(rand_range(0, 2 * PI))
 
 func new_game():
 	score = 0.00
