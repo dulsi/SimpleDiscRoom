@@ -24,9 +24,6 @@ position = Vector2( 160, 200 )
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="ScoreTimer" type="Timer" parent="."]
-wait_time = 0.01
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -65,6 +62,5 @@ current = true
 script = ExtResource( 8 )
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

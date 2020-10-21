@@ -3,14 +3,20 @@ extends Node
 export (PackedScene) var Disc
 var score
 var room_filler = 3
+var scoring = false
 
 func _ready():
 	randomize()
 
 
+func _process(delta):
+	if scoring:
+		score += delta
+		$HUD.update_score(score)
+
 func game_over():
+	scoring = false
 	$StartTimer.stop()
-	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
 	$Camera2D.shake = 6
@@ -24,6 +30,7 @@ func game_over():
 
 func new_game():
 	score = 0.00
+	scoring = true
 	room_filler = 3
 	$MobTimer.wait_time = 0.1
 	var discAry = $Discs.get_children()
@@ -37,12 +44,6 @@ func new_game():
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
-	$ScoreTimer.start()
-
-
-func _on_ScoreTimer_timeout():
-	score += 0.01
-	$HUD.update_score(score)
 
 
 func _on_MobTimer_timeout():
